@@ -1,0 +1,163 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "The Dark Knight",
+      "slug": "the-dark-knight",
+      "year": 2008,
+      "rating": 9.0,
+      "duration": "2h 32min",
+      "genre": ["Action", "Crime", "Drama", "Thriller"],
+      "director": "Christopher Nolan",
+      "writer": "Jonathan Nolan",
+      "studio": "Warner Bros",
+      "budget": "$185M",
+      "poster": "/placeholder.svg?height=600&width=400",
+      "trailer": "https://www.youtube.com/embed/EXeTwQWrcwY",
+      "plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the city streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as The Joker.",
+      "cast": [
+        {
+          "name": "Christian Bale",
+          "character": "Bruce Wayne / Batman",
+          "image": "/placeholder.svg?height=200&width=150"
+        },
+        { "name": "Heath Ledger", "character": "The Joker", "image": "/placeholder.svg?height=200&width=150" },
+        {
+          "name": "Aaron Eckhart",
+          "character": "Harvey Dent / Two-Face",
+          "image": "/placeholder.svg?height=200&width=150"
+        },
+        { "name": "Maggie Gyllenhaal", "character": "Rachel Dawes", "image": "/placeholder.svg?height=200&width=150" },
+        { "name": "Gary Oldman", "character": "Commissioner Gordon", "image": "/placeholder.svg?height=200&width=150" },
+        { "name": "Michael Caine", "character": "Alfred Pennyworth", "image": "/placeholder.svg?height=200&width=150" }
+      ],
+      "reviews": [
+        {
+          "user": "MovieLover2024",
+          "rating": 5,
+          "comment": "Absolutely phenomenal! Heath Ledger's performance as the Joker is legendary. Christopher Nolan created a masterpiece that redefined superhero movies.",
+          "date": "2 days ago",
+          "avatar": "/placeholder.svg?height=50&width=50"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Inception",
+      "slug": "inception",
+      "year": 2010,
+      "rating": 8.8,
+      "duration": "2h 28min",
+      "genre": ["Action", "Sci-Fi", "Thriller"],
+      "director": "Christopher Nolan",
+      "writer": "Christopher Nolan",
+      "studio": "Warner Bros",
+      "budget": "$160M",
+      "poster": "/placeholder.svg?height=600&width=400",
+      "trailer": "https://www.youtube.com/embed/YoHD9XEInc0",
+      "plot": "Dom Cobb is a skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state, when the mind is at its most vulnerable. Cobb's rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also made him an international fugitive and cost him everything he has ever loved.",
+      "cast": [
+        { "name": "Leonardo DiCaprio", "character": "Dom Cobb", "image": "/placeholder.svg?height=200&width=150" },
+        { "name": "Marion Cotillard", "character": "Mal", "image": "/placeholder.svg?height=200&width=150" },
+        { "name": "Tom Hardy", "character": "Eames", "image": "/placeholder.svg?height=200&width=150" }
+      ],
+      "reviews": []
+    },
+    {
+      "id": 3,
+      "title": "Interstellar",
+      "slug": "interstellar",
+      "year": 2014,
+      "rating": 8.6,
+      "duration": "2h 49min",
+      "genre": ["Adventure", "Drama", "Sci-Fi"],
+      "director": "Christopher Nolan",
+      "writer": "Jonathan Nolan",
+      "studio": "Paramount Pictures",
+      "budget": "$165M",
+      "poster": "/placeholder.svg?height=600&width=400",
+      "trailer": "https://www.youtube.com/embed/zSWdZVtXT7E",
+      "plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival. Earth's future has been riddled by disasters, famines, and droughts. There is only one way to ensure mankind's survival: Interstellar travel.",
+      "cast": [
+        { "name": "Matthew McConaughey", "character": "Cooper", "image": "/placeholder.svg?height=200&width=150" },
+        { "name": "Anne Hathaway", "character": "Brand", "image": "/placeholder.svg?height=200&width=150" }
+      ],
+      "reviews": []
+    },
+    {
+      "id": 4,
+      "title": "The Avengers",
+      "slug": "the-avengers",
+      "year": 2012,
+      "rating": 8.0,
+      "duration": "2h 23min",
+      "genre": ["Action", "Adventure", "Sci-Fi"],
+      "director": "Joss Whedon",
+      "writer": "Joss Whedon",
+      "studio": "Marvel Studios",
+      "budget": "$220M",
+      "poster": "/placeholder.svg?height=600&width=400",
+      "trailer": "https://www.youtube.com/embed/eOrNdBpGMv8",
+      "plot": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+      "cast": [
+        {
+          "name": "Robert Downey Jr.",
+          "character": "Tony Stark / Iron Man",
+          "image": "/placeholder.svg?height=200&width=150"
+        },
+        {
+          "name": "Chris Evans",
+          "character": "Steve Rogers / Captain America",
+          "image": "/placeholder.svg?height=200&width=150"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "id": 5,
+      "title": "Pulp Fiction",
+      "slug": "pulp-fiction",
+      "year": 1994,
+      "rating": 8.9,
+      "duration": "2h 34min",
+      "genre": ["Crime", "Drama"],
+      "director": "Quentin Tarantino",
+      "writer": "Quentin Tarantino",
+      "studio": "Miramax Films",
+      "budget": "$8M",
+      "poster": "/placeholder.svg?height=600&width=400",
+      "trailer": "https://www.youtube.com/embed/s7EdQ4FqbhY",
+      "plot": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+      "cast": [
+        { "name": "John Travolta", "character": "Vincent Vega", "image": "/placeholder.svg?height=200&width=150" },
+        {
+          "name": "Samuel L. Jackson",
+          "character": "Jules Winnfield",
+          "image": "/placeholder.svg?height=200&width=150"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "id": 6,
+      "title": "The Matrix",
+      "slug": "the-matrix",
+      "year": 1999,
+      "rating": 8.7,
+      "duration": "2h 16min",
+      "genre": ["Action", "Sci-Fi"],
+      "director": "The Wachowskis",
+      "writer": "The Wachowskis",
+      "studio": "Warner Bros",
+      "budget": "$63M",
+      "poster": "/placeholder.svg?height=600&width=400",
+      "trailer": "https://www.youtube.com/embed/vKQi3bBA1y8",
+      "plot": "A computer programmer is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix.",
+      "cast": [
+        { "name": "Keanu Reeves", "character": "Neo", "image": "/placeholder.svg?height=200&width=150" },
+        { "name": "Laurence Fishburne", "character": "Morpheus", "image": "/placeholder.svg?height=200&width=150" }
+      ],
+      "reviews": []
+    }
+  ]
+}

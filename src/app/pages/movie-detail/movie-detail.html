@@ -1,0 +1,178 @@
+<!-- movie-detail.cokfowanflmponent.html -->
+
+<!-- Movie Hero Section -->
+<section class="relative">
+  <div class="absolute inset-0 hero-bg"></div>
+  <div class="relative container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <!-- Movie Poster -->
+      <div class="lg:col-span-1">
+        <div class="relative group">
+          <img 
+            [src]="movie.poster" 
+            [alt]="movie.title" 
+            class="w-full max-w-sm mx-auto lg:mx-0 rounded-2xl shadow-2xl"
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Movie Info -->
+      <div class="lg:col-span-2 space-y-6">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ movie.title }}</h1>
+          <div class="flex flex-wrap items-center gap-4 text-slate-300 mb-6">
+            <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.year }}</span>
+            <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.pgRating }}</span>
+            <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.duration }}</span>
+            <div class="flex items-center space-x-1">
+              <i class="fas fa-star text-yellow-400"></i>
+              <span class="font-semibold">{{ movie.rating }}</span>
+              <span class="text-slate-400">/10</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span *ngFor="let genre of movie.genre" class="px-3 py-1 rounded-full text-sm"
+              [ngClass]="{
+                'bg-blue-600/20 text-blue-400': genre === 'Action',
+                'bg-purple-600/20 text-purple-400': genre === 'Crime',
+                'bg-green-600/20 text-green-400': genre === 'Drama',
+                'bg-red-600/20 text-red-400': genre === 'Thriller'
+              }"
+            >
+              {{ genre }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-4">
+          <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+            <i class="fas fa-play"></i>
+            <span>Watch Now</span>
+          </button>
+          <button class="bg-slate-800/50 hover:bg-slate-700 border border-slate-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+            <i class="fas fa-plus"></i>
+            <span>My List</span>
+          </button>
+          <button class="bg-slate-800/50 hover:bg-slate-700 border border-slate-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+            <i class="fas fa-heart"></i>
+            <span>Like</span>
+          </button>
+          <button class="bg-slate-800/50 hover:bg-slate-700 border border-slate-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+            <i class="fas fa-share"></i>
+            <span>Share</span>
+          </button>
+        </div>
+
+        <!-- Quick Info -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-700/50">
+          <div>
+            <p class="text-slate-400 text-sm">Director</p>
+            <p class="font-semibold">{{ movie.director }}</p>
+          </div>
+          <div>
+            <p class="text-slate-400 text-sm">Writer</p>
+            <p class="font-semibold">{{ movie.writer }}</p>
+          </div>
+          <div>
+            <p class="text-slate-400 text-sm">Studio</p>
+            <p class="font-semibold">{{ movie.studio }}</p>
+          </div>
+          <div>
+            <p class="text-slate-400 text-sm">Budget</p>
+            <p class="font-semibold">{{ movie.budget }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main class="container mx-auto px-4 py-12">
+  <!-- Trailer Section -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-white mb-8">Official Trailer</h2>
+    <div class="video-container bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+<iframe
+  [src]="getSafeUrl(movie.trailer)"
+  [title]="movie.title + ' - Official Trailer'"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-white mb-8">Story</h2>
+    <div class="bg-slate-800/30 rounded-2xl p-8 border border-slate-700/30">
+      <p class="text-slate-300 text-lg leading-relaxed" [innerText]="movie.plot"></p>
+    </div>
+  </section>
+
+  <!-- Cast Section -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-white mb-8">Cast & Crew</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div *ngFor="let castMember of movie.cast" class="cast-card text-center">
+        <div class="relative mb-4">
+          <img
+            [src]="castMember.photo"
+            [alt]="castMember.name"
+            class="w-full h-48 object-cover rounded-xl"
+          >
+        </div>
+        <h3 class="font-semibold text-white text-sm mb-1">{{ castMember.name }}</h3>
+        <p class="text-slate-400 text-xs">{{ castMember.character }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Movies Section -->
+  <section class="mb-16" *ngIf="movie.relatedMovies?.length">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-3xl font-bold text-white">Related Movies</h2>
+      <button class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center space-x-1 transition-colors duration-300">
+        <span>View All</span>
+        <i class="fas fa-arrow-right text-xs"></i>
+      </button>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+      <div *ngFor="let related of movie.relatedMovies" class="movie-card group cursor-pointer">
+        <div class="relative overflow-hidden rounded-xl bg-slate-800">
+          <img
+            [src]="related.poster"
+            [alt]="related.title"
+            class="movie-poster w-full h-80 object-cover"
+          >
+          <div
+            class="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+          >
+            <button class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3 hover:bg-white/30 transition-all duration-300">
+              <i class="fas fa-play text-white text-lg"></i>
+            </button>
+          </div>
+          <div
+            class="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <i class="fas fa-heart text-white text-sm"></i>
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="font-semibold text-white text-sm mb-1 line-clamp-1">{{ related.title }}</h3>
+          <p class="text-slate-400 text-xs mb-2">{{ related.year }} • {{ related.genre }}</p>
+          <div class="flex items-center space-x-1">
+            <i class="fas fa-star text-yellow-400 text-xs"></i>
+            <span class="text-slate-300 text-xs">{{ related.rating }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

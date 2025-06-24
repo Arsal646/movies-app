@@ -1,0 +1,98 @@
+
+
+<div class="bg-slate-900 text-white min-h-screen">
+
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Featured Section -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-white">Trending Now</h2>
+                <button
+                    class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center space-x-1 transition-colors duration-300">
+                    <span>View All</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+                <!-- Movie Card 1 -->
+
+                @for (movie of trendingMovies; track $index) {
+                <div (click)="onMovieCardClick(movie)" class="movie-card group cursor-pointer block">
+                    <div class="relative overflow-hidden rounded-xl bg-slate-800">
+                        <img [src]="movie.poster" [alt]="movie.title" class="movie-poster w-full h-80 object-cover" />
+                        <div
+                            class="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button
+                                class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3 hover:bg-white/30 transition-all duration-300">
+                                <i class="fas fa-play text-white text-lg"></i>
+                            </button>
+                        </div>
+                        <div
+                            class="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-heart text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-semibold text-white text-sm mb-1 line-clamp-1">{{ movie.title }}</h3>
+                        <p class="text-slate-400 text-xs mb-2">2012 • Animation</p>
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            <span class="text-slate-300 text-xs">8.2</span>
+                        </div>
+                    </div>
+                </div>
+                }
+
+            </div>
+        </section>
+
+        <!-- Popular Movies Section -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-white">Popular Movies</h2>
+                <button
+                    class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center space-x-1 transition-colors duration-300">
+                    <span>View All</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+                <!-- Movie Card 1 -->
+
+                @for (movie of trendingMovies; track $index) {
+                <div class="movie-card group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-slate-800">
+                        <img [src]="movie.poster" alt="Rise of the Guardians"
+                            class="movie-poster w-full h-80 object-cover">
+                        <div
+                            class="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button
+                                class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3 hover:bg-white/30 transition-all duration-300">
+                                <i class="fas fa-play text-white text-lg"></i>
+                            </button>
+                        </div>
+                        <div
+                            class="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-heart text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="font-semibold text-white text-sm mb-1 line-clamp-1">{{movie.title}}</h3>
+                        <p class="text-slate-400 text-xs mb-2">2012 • Animation</p>
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            <span class="text-slate-300 text-xs">8.2</span>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </section>
+    </main>
+
+
+
+</div>
