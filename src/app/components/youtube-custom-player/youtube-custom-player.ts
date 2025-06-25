@@ -34,7 +34,7 @@ declare global {
       <div #player></div>
 
       <div class="pause-overlay" [class.active]="paused">
-        <button class="control-btn" (click)="togglePlay()">Resume ▶</button>
+        <button class="control-btn" (click)="togglePlay()">Play ▶</button>
       </div>
 
       <div class="controls-bar">
