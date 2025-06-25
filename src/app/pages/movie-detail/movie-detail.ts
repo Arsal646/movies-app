@@ -37,7 +37,7 @@ export class MovieDetail {
         if (movie) {
           this.movie = movie
           this.updateSEO(movie)
-          this.loadRelatedMovies(movie)
+          //this.loadRelatedMovies(movie)
           this.loading = false
         } else {
           this.router.navigate(["/"])
@@ -51,33 +51,34 @@ export class MovieDetail {
   }
 
   private updateSEO(movie: any): void {
-    this.titleService.setTitle(`${movie.title} (${movie.year}) - MoviesOn`)
+  this.titleService.setTitle(this.movie.title.substring(0, 30));
+
 
     this.metaService.updateTag({
       name: "description",
-      content: movie.plot.substring(0, 160) + "...",
+      content: movie.description.substring(0, 160) + "...",
     })
 
-    this.metaService.updateTag({
-      property: "og:title",
-      content: `${movie.title} (${movie.year})`,
-    })
+  //   this.metaService.updateTag({
+  //     property: "og:title",
+  //     content: `${movie.title} (${movie.year})`,
+  //   })
 
-    this.metaService.updateTag({
-      property: "og:description",
-      content: movie.plot.substring(0, 160) + "...",
-    })
+  //   this.metaService.updateTag({
+  //     property: "og:description",
+  //     content: movie.plot.substring(0, 160) + "...",
+  //   })
 
-    this.metaService.updateTag({
-      property: "og:image",
-      content: movie.poster,
-    })
-  }
+  //   this.metaService.updateTag({
+  //     property: "og:image",
+  //     content: movie.poster,
+  //   })
+  // }
 
-  private loadRelatedMovies(movie: any): void {
-    this.movieService.getRelatedMovies(movie).subscribe((related) => {
-      this.relatedMovies = related
-    })
+  // private loadRelatedMovies(movie: any): void {
+  //   this.movieService.getRelatedMovies(movie).subscribe((related) => {
+  //     this.relatedMovies = related
+  //   })
   }
 
   getStarArray(rating: number): boolean[] {
