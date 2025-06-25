@@ -22,7 +22,7 @@
       <!-- Movie Info -->
       <div class="lg:col-span-2 space-y-6">
         <div>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ movie.title }}</h1>
+          <h1 class="text-xl md:text-5xl font-bold text-white mb-4">{{ movie.title }}</h1>
           <!-- <div class="flex flex-wrap items-center gap-4 text-slate-300 mb-6">
             <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.year }}</span>
             <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.pgRating }}</span>
@@ -49,7 +49,7 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex flex-wrap gap-4">
+        <!-- <div class="flex flex-wrap gap-4">
           <button class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
             <i class="fas fa-play"></i>
             <span>Watch Now</span>
@@ -66,7 +66,7 @@
             <i class="fas fa-share"></i>
             <span>Share</span>
           </button>
-        </div>
+        </div> -->
 
         <!-- Quick Info -->
         <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-700/50">
@@ -92,23 +92,27 @@
   </div>
 </section>
 
+
 <!-- Main Content -->
 <main class="container mx-auto px-4 py-12">
   <!-- Trailer Section -->
   <section class="mb-16">
-    <h2 class="text-3xl font-bold text-white mb-8">Official Trailer</h2>
-    <div class="video-container bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+    <h2 class="text-3xl font-bold text-white mb-8">Watch Now</h2>
+    <div class="video-container bg-slate-800 rounded-2xl overflow-hidden shadow-2xl p-0 md:p-4">
 
 
+      @if (movie.videoId) {
+        <app-youtube-custom-player [videoId]="movie.videoId"></app-youtube-custom-player>
+      }
 
-<iframe
+<!-- <iframe
   width="560"
   height="315"
   [src]="getSafeUrl()"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
-</iframe>
+</iframe> -->
 
 
 

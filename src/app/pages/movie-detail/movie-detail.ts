@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
 import { Meta, SafeResourceUrl, Title,DomSanitizer } from '@angular/platform-browser';
 import { Subject, switchMap, takeUntil } from 'rxjs';
+import {  YouTubeCustomPlayerComponent } from "../../components/youtube-custom-player/youtube-custom-player";
 
 @Component({
   selector: 'app-movie-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, YouTubeCustomPlayerComponent],
   templateUrl: './movie-detail.html',
   styleUrl: './movie-detail.css'
 })
