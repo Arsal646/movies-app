@@ -1,4 +1,5 @@
 
+import { isPlatformBrowser } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -8,6 +9,8 @@ import {
   ChangeDetectorRef,
   Input,
   HostListener,
+  PLATFORM_ID,
+  Inject,
 } from '@angular/core';
 
 declare global {
@@ -95,9 +98,14 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
   private raf = 0;
   private hideUITimer!: any;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+ constructor(@Inject(PLATFORM_ID) private platformId: Object, private cdr: ChangeDetectorRef) {}
 
-  ngAfterViewInit(): void { this.loadYT(); }
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadYT();
+    }
+  }
+  
   ngOnDestroy(): void {
     cancelAnimationFrame(this.raf);
     clearTimeout(this.hideUITimer);
@@ -105,13 +113,16 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
   }
 
   /* ---------- YouTube setup ---------- */
-  private loadYT(): void {
+    private loadYT(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     if (window.YT?.Player) { this.initPlayer(); return; }
     const script = document.createElement('script');
     script.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(script);
     window.onYouTubeIframeAPIReady = () => this.initPlayer();
   }
+
 
   private initPlayer(): void {
     this.player = new window.YT.Player(this.playerHost.nativeElement, {
