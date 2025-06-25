@@ -105,9 +105,12 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
       this.loadYT();
     }
   }
-  
-  ngOnDestroy(): void {
-    cancelAnimationFrame(this.raf);
+
+
+    ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      cancelAnimationFrame(this.raf);
+    }
     clearTimeout(this.hideUITimer);
     if (this.player?.destroy) this.player.destroy();
   }
