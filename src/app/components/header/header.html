@@ -23,7 +23,7 @@
             (focus)="showSearchResults = searchResults.length > 0"
             class="search-input w-full bg-slate-800/50 border border-slate-600 rounded-full py-3 px-4 pl-12 text-sm focus:outline-none focus:border-blue-500 transition-all duration-300"
           >
-          <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+          <i class="fas fa-search absolute left-4 top-8 transform -translate-y-1/2 text-slate-400"></i>
           
           <!-- Search Results Dropdown -->
           <div *ngIf="showSearchResults && searchResults.length > 0" 
@@ -54,10 +54,10 @@
         </button>
         
         <!-- Desktop Sign In -->
-        <button class="hidden md:flex items-center space-x-2 bg-slate-800/50 hover:bg-slate-700 px-4 py-2 rounded-full transition-colors duration-300">
+        <!-- <button class="hidden md:flex items-center space-x-2 bg-slate-800/50 hover:bg-slate-700 px-4 py-2 rounded-full transition-colors duration-300">
           <i class="fas fa-user text-sm"></i>
-          <span class="text-sm">Sign In</span>
-        </button>
+          <span class="text-sm"></span>
+        </button> -->
         
         <!-- Mobile Menu Button -->
         <button (click)="toggleMobileMenu()" 
@@ -80,9 +80,9 @@
           (blur)="onSearchBlur()"
           class="w-full bg-slate-800/50 border border-slate-600 rounded-full py-3 px-4 pl-12 pr-10 text-sm focus:outline-none focus:border-blue-500 transition-all duration-300"
         >
-        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+        <i class="fas fa-search absolute left-4 top-8 transform -translate-y-1/2 text-slate-400"></i>
         <button (click)="clearSearch()" 
-                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white">
+                class="absolute right-4 top-8 transform -translate-y-1/2 text-slate-400 hover:text-white">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -112,13 +112,10 @@
 <nav class="bg-slate-800/30 border-b border-slate-700/30">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-8 py-4">
-        <a routerLink="/" routerLinkActive="text-blue-400" 
-           class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300">Home</a>
-        <a href="#" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300">Movies</a>
-        <a href="#" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300">TV Shows</a>
-        <a href="#" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300">Genres</a>
-        <a href="#" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300">My List</a>
+      <div class="flex items-center gap-10 py-4">
+        <a routerLinkActive="text-blue-400" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300 cursor-pointer" routerLink="/">Home</a>
+        <a href="#" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300 text-left" routerLink="movie">Movies</a>
+        <a href="#" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300 text-left">Genres</a>
       </div>
       
       <div class="hidden md:flex items-center space-x-4">
@@ -157,10 +154,8 @@
            class="block text-slate-300 hover:text-white transition-colors duration-300">Home</a>
         <a href="#" class="block text-slate-300 hover:text-white transition-colors duration-300">Movies</a>
         <a href="#" class="block text-slate-300 hover:text-white transition-colors duration-300">TV Shows</a>
-        <a href="#" class="block text-slate-300 hover:text-white transition-colors duration-300">Genres</a>
-        <a href="#" class="block text-slate-300 hover:text-white transition-colors duration-300">My List</a>
         <hr class="border-slate-700 my-4">
-        <a href="#" class="block text-slate-300 hover:text-white transition-colors duration-300">Sign In</a>
+        <a href="#" class="block text-slate-300 hover:text-white transition-colors duration-300"></a>
       </nav>
     </div>
   </div>

@@ -101,7 +101,12 @@ export class MovieDetail {
     return colors[genre] || "bg-gray-600/20 text-gray-400"
   }
 
-    getSafeUrl(url: string): SafeResourceUrl {
+  //   getSafeUrl(url: string): SafeResourceUrl {
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  // }
+
+  getSafeUrl(): SafeResourceUrl {
+    const url = `https://www.youtube.com/embed/${this.movie.videoId}?modestbranding=1&rel=0`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

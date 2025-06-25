@@ -32,6 +32,6 @@ export class Movie {
   }
 
   onMovieCardClick(movie: any) {
-    this.router.navigate([`movie/${movie.slug}`])
+    this.router.navigate([`movie/${movie.videoId}`])
   }
 }

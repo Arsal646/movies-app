@@ -1,7 +1,7 @@
 import { Component, type OnInit, type OnDestroy } from "@angular/core"
 import { Subject, debounceTime, distinctUntilChanged, takeUntil } from "rxjs"
 import { MovieService } from "../../services/movie.service"
-import { Router } from "@angular/router"
+import { Router, RouterLink } from "@angular/router"
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
 
@@ -9,7 +9,7 @@ import { CommonModule } from "@angular/common";
   selector: "app-header",
   templateUrl: "./header.html",
   styleUrls: ["./header.css"],
-  imports:[FormsModule, CommonModule]
+  imports:[FormsModule, CommonModule, RouterLink]
 })
 export class Header implements OnInit, OnDestroy {
   searchQuery = ""

@@ -9,7 +9,7 @@
       <div class="lg:col-span-1">
         <div class="relative group">
           <img 
-            [src]="movie.poster" 
+            [src]="movie.hdThumbnailUrl" 
             [alt]="movie.title" 
             class="w-full max-w-sm mx-auto lg:mx-0 rounded-2xl shadow-2xl"
           >
@@ -23,7 +23,7 @@
       <div class="lg:col-span-2 space-y-6">
         <div>
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ movie.title }}</h1>
-          <div class="flex flex-wrap items-center gap-4 text-slate-300 mb-6">
+          <!-- <div class="flex flex-wrap items-center gap-4 text-slate-300 mb-6">
             <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.year }}</span>
             <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.pgRating }}</span>
             <span class="bg-slate-800/50 px-3 py-1 rounded-full text-sm">{{ movie.duration }}</span>
@@ -32,9 +32,9 @@
               <span class="font-semibold">{{ movie.rating }}</span>
               <span class="text-slate-400">/10</span>
             </div>
-          </div>
+          </div> -->
 
-          <div class="flex flex-wrap gap-2 mb-6">
+          <!-- <div class="flex flex-wrap gap-2 mb-6">
             <span *ngFor="let genre of movie.genre" class="px-3 py-1 rounded-full text-sm"
               [ngClass]="{
                 'bg-blue-600/20 text-blue-400': genre === 'Action',
@@ -45,7 +45,7 @@
             >
               {{ genre }}
             </span>
-          </div>
+          </div> -->
         </div>
 
         <!-- Action Buttons -->
@@ -69,7 +69,7 @@
         </div>
 
         <!-- Quick Info -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-700/50">
+        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-700/50">
           <div>
             <p class="text-slate-400 text-sm">Director</p>
             <p class="font-semibold">{{ movie.director }}</p>
@@ -86,7 +86,7 @@
             <p class="text-slate-400 text-sm">Budget</p>
             <p class="font-semibold">{{ movie.budget }}</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -98,13 +98,20 @@
   <section class="mb-16">
     <h2 class="text-3xl font-bold text-white mb-8">Official Trailer</h2>
     <div class="video-container bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+
+
+
 <iframe
-  [src]="getSafeUrl(movie.trailer)"
-  [title]="movie.title + ' - Official Trailer'"
+  width="560"
+  height="315"
+  [src]="getSafeUrl()"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+
+
+
     </div>
   </section>
 
@@ -112,12 +119,12 @@
   <section class="mb-16">
     <h2 class="text-3xl font-bold text-white mb-8">Story</h2>
     <div class="bg-slate-800/30 rounded-2xl p-8 border border-slate-700/30">
-      <p class="text-slate-300 text-lg leading-relaxed" [innerText]="movie.plot"></p>
+      <p class="text-slate-300 text-lg leading-relaxed" [innerText]="movie.description"></p>
     </div>
   </section>
 
   <!-- Cast Section -->
-  <section class="mb-16">
+  <!-- <section class="mb-16">
     <h2 class="text-3xl font-bold text-white mb-8">Cast & Crew</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
       <div *ngFor="let castMember of movie.cast" class="cast-card text-center">
@@ -132,10 +139,10 @@
         <p class="text-slate-400 text-xs">{{ castMember.character }}</p>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Related Movies Section -->
-  <section class="mb-16" *ngIf="movie.relatedMovies?.length">
+  <!-- <section class="mb-16" *ngIf="movie.relatedMovies?.length">
     <div class="flex items-center justify-between mb-8">
       <h2 class="text-3xl font-bold text-white">Related Movies</h2>
       <button class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center space-x-1 transition-colors duration-300">
@@ -174,5 +181,5 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </main>

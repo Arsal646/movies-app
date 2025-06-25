@@ -31,7 +31,7 @@ export class MovieService {
   }
 
   getMovieBySlug(slug: string): Observable<any | undefined> {
-    return this.movies$.pipe(map((movies) => movies.find((movie) => movie.slug === slug)))
+    return this.movies$.pipe(map((movies) => movies.find((movie) => movie.videoId === slug)))
   }
 
   searchMovies(query: string): Observable<any[]> {
