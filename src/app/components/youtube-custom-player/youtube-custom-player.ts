@@ -1,4 +1,3 @@
-
 import { isPlatformBrowser } from '@angular/common';
 import {
   Component,
@@ -50,33 +49,207 @@ declare global {
     </div>
   `,
   styles: [
-    `:host{display:block;height:100%;--bg:#111827;--btn:#1f2937;--btn-hover:#374151;--accent:#3b82f6;}
+    `:host {
+      display: block;
+      height: 100%;
+      --bg: #111827;
+      --btn: #1f2937;
+      --btn-hover: #374151;
+      --accent: #3b82f6;
+    }
 
-     .player-container{position:relative;width:640px;max-width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,.6);overflow:hidden;}
-     /* When element itself is in FS, vw/vh = 100% */
-     .player-container.is-fullscreen{width:100vw;height:100vh;aspect-ratio:auto;border-radius:0;}
-     .player-container>div:first-child,.player-container iframe{position:absolute;inset:0;width:100%!important;height:100%!important;border:0;}
-     .player-container.is-fullscreen iframe{object-fit:cover;}
+    .player-container {
+      position: relative;
+      width: 640px;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.6);
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-     .brand-cover{position:absolute;left:0;width:100%;pointer-events:none;background:var(--bg);z-index:4;}
-     .brand-cover.top{top:0;height:40px;}
-     .brand-cover.bottom{bottom:0;height:26px;}
+    .player-container.is-fullscreen {
+      width: 100vw;
+      height: 100vh;
+      aspect-ratio: auto;
+      border-radius: 0;
+    }
 
-     .pause-overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:#000;z-index:3;}
-     .pause-overlay.active{display:flex;}
+    .player-container > div:first-child,
+    .player-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0;
+    }
 
-     .controls-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);z-index:5;transition:opacity .3s;}
-     .player-container.hide-ui .controls-bar{opacity:0;pointer-events:none;}
+    .player-container.is-fullscreen iframe {
+      object-fit: cover;
+    }
 
-     .control-btn{background:var(--btn);border:none;color:#fff;padding:6px 10px;border-radius:6px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .1s;}
-     .control-btn:hover{background:var(--btn-hover);} .control-btn:active{transform:scale(.95);} 
+    .brand-cover {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      background: var(--bg);
+      z-index: 4;
+    }
 
-     .seek{flex:1;height:4px;cursor:pointer;-webkit-appearance:none;background:#4b5563;border-radius:2px;}
-     .seek::-webkit-slider-thumb{appearance:none;width:12px;height:12px;border-radius:50%;background:var(--accent);cursor:pointer;border:none;transform:translateY(0);} 
-     .seek::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;}
+    .brand-cover.top {
+      top: 0;
+      height: 40px;
+    }
 
-     .time{font-size:13px;min-width:68px;text-align:center;}
-    `
+    .brand-cover.bottom {
+      bottom: 0;
+      height: 26px;
+    }
+
+    .pause-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.75);
+      z-index: 3;
+      backdrop-filter: blur(8px);
+    }
+
+    .pause-overlay.active {
+      display: flex;
+    }
+
+    .control-btn {
+      background: var(--btn);
+      border: none;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .control-btn:hover {
+      background: var(--btn-hover);
+    }
+
+    .control-btn:active {
+      transform: scale(0.95);
+    }
+
+    .controls-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(3px);
+      z-index: 5;
+      transition: opacity 0.3s;
+    }
+
+    .player-container.hide-ui .controls-bar {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .seek {
+      flex: 1;
+      height: 4px;
+      cursor: pointer;
+      -webkit-appearance: none;
+      background: #4b5563;
+      border-radius: 2px;
+    }
+
+    .seek::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: none;
+      transform: translateY(0);
+    }
+
+    .seek::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+    }
+
+    .time {
+      font-size: 13px;
+      min-width: 68px;
+      text-align: center;
+      color: white;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    /* Responsive and Mobile Friendly */
+    @media (max-width: 640px) {
+      .player-container {
+        width: 100vw !important;
+        height: calc(100vw * 9 / 16) !important;
+        border-radius: 0;
+      }
+
+      .controls-bar {
+        padding: 12px 16px;
+        gap: 14px;
+      }
+
+      .control-btn {
+        padding: 12px 14px;
+        font-size: 22px;
+        border-radius: 10px;
+        min-width: 48px;
+        min-height: 48px;
+      }
+
+      .seek {
+        height: 8px;
+        margin: 0 12px;
+      }
+
+      .seek::-webkit-slider-thumb {
+        width: 18px;
+        height: 18px;
+        margin-top: -5px;
+      }
+
+      .seek::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+      }
+
+      .time {
+        font-size: 16px;
+        min-width: 70px;
+      }
+    }
+  `
   ]
 })
 export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
@@ -98,7 +271,7 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
   private raf = 0;
   private hideUITimer!: any;
 
- constructor(@Inject(PLATFORM_ID) private platformId: Object, private cdr: ChangeDetectorRef) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -106,8 +279,7 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-
-    ngOnDestroy(): void {
+  ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
       cancelAnimationFrame(this.raf);
     }
@@ -115,8 +287,7 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
     if (this.player?.destroy) this.player.destroy();
   }
 
-  /* ---------- YouTube setup ---------- */
-    private loadYT(): void {
+  private loadYT(): void {
     if (!isPlatformBrowser(this.platformId)) return;
 
     if (window.YT?.Player) { this.initPlayer(); return; }
@@ -125,7 +296,6 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
     document.body.appendChild(script);
     window.onYouTubeIframeAPIReady = () => this.initPlayer();
   }
-
 
   private initPlayer(): void {
     this.player = new window.YT.Player(this.playerHost.nativeElement, {
@@ -142,10 +312,10 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
     this.updateLoop();
   }
 
-  /* ---------- Controls ---------- */
   togglePlay(): void { (this.paused) ? this.player.playVideo() : this.player.pauseVideo(); }
-  toggleMute(): void { this.muted = !this.muted; this.muted ? this.player.mute() : this.player.unMute(); }
+  toggleMute(): void { this.muted = !this.muted; this.muted ? this.player.mute() : this.player.unMute(); this.cdr.markForCheck(); }
   onSeek(e: Event): void { this.player.seekTo(+(<HTMLInputElement>e.target).value, true); }
+
   toggleFullscreen(): void {
     const el = this.containerRef.nativeElement;
     if (!document.fullscreenElement) {
@@ -170,36 +340,46 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
     this.player.setSize(w, h);
   }
 
-  /* ---------- Player state ---------- */
   private onState(e: any): void {
     const { PLAYING, PAUSED, ENDED } = window.YT.PlayerState;
-    if (e.data === PLAYING) { this.paused = false; } if (e.data === PAUSED || e.data === ENDED) { this.paused = true; }
+    if (e.data === PLAYING) { this.paused = false; }
+    if (e.data === PAUSED || e.data === ENDED) { this.paused = true; }
     this.showUI();
+    this.cdr.markForCheck();
   }
 
-  /* ---------- Loop ---------- */
   private updateLoop(): void {
     this.currentTime = this.player.getCurrentTime();
     this.timeText = `${this.fmt(this.currentTime)} / ${this.fmt(this.duration)}`;
     this.raf = requestAnimationFrame(() => this.updateLoop());
   }
 
-  /* ---------- UI auto‑hide ---------- */
-  showUI(): void { this.uiHidden = false; clearTimeout(this.hideUITimer); this.hideUITimer = setTimeout(() => { this.uiHidden = true; this.cdr.markForCheck(); }, 3000); this.cdr.markForCheck();
-  if (!this.isMobile()) {
-    this.hideUITimer = setTimeout(() => {
+  showUI(): void {
+    this.uiHidden = false;
+    clearTimeout(this.hideUITimer);
+
+    if (!this.isMobile()) {
+      this.hideUITimer = setTimeout(() => {
+        this.uiHidden = true;
+        this.cdr.markForCheck();
+      }, 3000);
+    }
+    this.cdr.markForCheck();
+  }
+
+  hideUI(): void {
+    if (!this.isMobile()) {
       this.uiHidden = true;
       this.cdr.markForCheck();
-    }, 3000);
+    }
   }
-}
-  hideUI(): void { this.uiHidden = true; this.cdr.markForCheck(); }
 
   private isMobile(): boolean {
     return window.innerWidth <= 640;
   }
 
-
-  /* ---------- util ---------- */
-  private fmt(sec: number): string { sec = Math.floor(sec); return `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`; }
+  private fmt(sec: number): string {
+    sec = Math.floor(sec);
+    return `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+  }
 }
