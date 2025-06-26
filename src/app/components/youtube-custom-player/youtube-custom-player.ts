@@ -494,6 +494,12 @@ declare global {
     .player-container.hide-ui * {
       transition: all 0.3s ease;
     }
+
+    @media (max-width: 768px) {
+  .player-container .controls-bar {
+    margin-bottom: 12px;
+  }
+}
   `
   ]
 })
@@ -556,7 +562,7 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
         playsinline: 1, 
         iv_load_policy: 3,
         disablekb: 1,
-        cc_load_policy: 0
+        cc_load_policy: 0,
       },
       events: { 
         onReady: () => this.onReady(), 
@@ -586,14 +592,39 @@ export class YouTubeCustomPlayerComponent implements AfterViewInit, OnDestroy {
     this.player.seekTo(+(<HTMLInputElement>e.target).value, true); 
   }
 
+  // toggleFullscreen(): void {
+  //   const el = this.containerRef.nativeElement;
+  //   if (!document.fullscreenElement) {
+  //     (el.requestFullscreen || (<any>el).webkitRequestFullscreen || (<any>el).msRequestFullscreen).call(el);
+  //   } else {
+  //     (document.exitFullscreen || (<any>document).webkitExitFullscreen || (<any>document).msExitFullscreen).call(document);
+  //   }
+  // }
+
   toggleFullscreen(): void {
-    const el = this.containerRef.nativeElement;
-    if (!document.fullscreenElement) {
-      (el.requestFullscreen || (<any>el).webkitRequestFullscreen || (<any>el).msRequestFullscreen).call(el);
-    } else {
-      (document.exitFullscreen || (<any>document).webkitExitFullscreen || (<any>document).msExitFullscreen).call(document);
+  const el = this.containerRef.nativeElement as any;
+
+  if (!document.fullscreenElement &&
+      !document.fullscreenElement &&
+      !document.fullscreenElement) {
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen(); // Safari
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen(); // IE11
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if ((document as any).webkitExitFullscreen) {
+      (document as any).webkitExitFullscreen();
+    } else if ((document as any).msExitFullscreen) {
+      (document as any).msExitFullscreen();
     }
   }
+}
+
 
   onContainerClick(event: Event): void {
     const target = event.target as HTMLElement;
